@@ -42,7 +42,7 @@ class Alumno
 	def calcular_promedio_practicas
 		promedio = 0
 		@practicas.each{|practica| promedio+=practica }
-		return promedio/@practicas.count 
+		return (promedio)/@practicas.count 
 	end
 
 	def calcular_promedio_final
@@ -50,8 +50,15 @@ class Alumno
 		return pf
 	end
 
-	def mostrar_nota
-		puts "#{@nombre} #{@apellido} #{@notas} #{calcular_promedio_final}"
+	def mostrar_promedio
+		descripcion = "#{@nombre} #{@apellido}"
+		puts "#{descripcion.ljust(25)}: #{calcular_promedio_final.ceil}"
+	end
+
+	def mostrar_notas
+		# Mostramos prom_practicas, parcial, final, promedio fina
+		descripcion = "#{@nombre} #{@apellido}".ljust(20)
+		puts "#{@codigo} #{descripcion} #{calcular_promedio_practicas} #{@parcial} #{@final} #{calcular_promedio_final.ceil}"
 	end
 end
 
@@ -61,12 +68,14 @@ alumno02 = Alumno.new("002","Carlos", "Paredes")
 alumno03 = Alumno.new("003","Martin", "FLores")
 
 # Ingresamos notas
-alumno01.ingresar_notas([15,16,17],15,10)
-alumno02.ingresar_notas([18,12,9],15,8)
-alumno03.ingresar_notas([9,16,20],19,14)
+alumno01.ingresar_notas([15,13,17],15,16)
+alumno02.ingresar_notas([18,12,9],15,11)
+alumno03.ingresar_notas([12,12,13],19,14)
 
-# Mostramos promedio
-alumno01.mostrar_nota
-alumno02.mostrar_nota
-alumno03.mostrar_nota
+# Mostramos promedios
+print "COD ","ALUMNO".ljust(22),"PP EP EF PF","\n"
+puts "-------------------------------------"
+alumno01.mostrar_notas
+alumno02.mostrar_notas
+alumno03.mostrar_notas
 
