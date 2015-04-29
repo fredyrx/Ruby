@@ -66,7 +66,7 @@ alumno02.ingresar_notas([18,12,9],15,8)
 alumno03.ingresar_notas([9,16,20],19,14)
 
 # Mostramos promedio
-print alumno01.mostrar_nota
-print alumno02.mostrar_nota
-print alumno03.mostrar_nota
+alumno01.mostrar_nota
+alumno02.mostrar_nota
+alumno03.mostrar_nota
 
