@@ -29,7 +29,7 @@ class Perro
 	end
 
 	def mostrar_datos
-		return "Nombre : #{@nombre} Numero : #{@pista}"
+		return "Nombre : #{nombre} Numero : #{pista}"
 	end
 
 	def velocidad_carrera
