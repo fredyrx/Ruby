@@ -36,10 +36,13 @@ class Perro
 		return velocidad + rand(1..10)
 	end
 
+	def mostrar_datos_carrera
+		return "Nombre : #{nombre} Numero : #{pista} Velocidad: #{velocidad_carrera}" 
+	end
 end
 
 # Instanciando 
-perro01 = Perro.new("Boby",1,5)
+perro01 = Perro.new("Bravo",1,5)
 perro02 = Perro.new("Seus",2,7)
 perro03 = Perro.new("Rayo",3,9)
 
@@ -52,3 +55,7 @@ puts perro03.mostrar_datos
 puts perro01.velocidad_carrera
 puts perro02.velocidad_carrera
 puts perro03.velocidad_carrera
+
+# Usando arreglo de objetos
+carrera = [perro01, perro02 ,perro03]
+carrera.each{|perro| puts perro.mostrar_datos_carrera}
