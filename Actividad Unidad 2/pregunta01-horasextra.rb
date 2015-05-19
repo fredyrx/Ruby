@@ -63,6 +63,7 @@ class Empleado
 	end
 
 	def calcular_pago_total
+		#retorna el pago total
 		pago = calcular_pago_base() + calcular_pago_horas_extra()
 
 		pago_total =  pago + calcular_comision(pago) - descuentos
@@ -72,18 +73,18 @@ class Empleado
 	:private
 	def seleccionar_comision
 		monto = @ventas
-		case monto
-			when monto < 1700
-				comision = 0
-			when monto < 2500
-				comision = 0.03	
-			when monto < 3200
-				comision = 0.05
-			when monto < 3700
-				comision = 0.07
-			else
-				comision = 0.1
+		if monto < 1700
+			comision = 0.0
+		elsif monto < 2500
+			comision = 0.03	
+		elsif monto < 3200
+			comision = 0.05
+		elsif monto < 3700
+			comision = 0.07
+		else
+			comision = 0.1
 		end
+		return comision
 	end
 
 end
