@@ -1,7 +1,7 @@
 class Concursante
-	attr_accessor :nombre, :apellido, :region, :edad, :calificacion_jurado
-	def initialize(nombre, apellido, region, edad)
-		@nombre, @apellido, @region, @edad = nombre, apellido, region, edad
+	attr_accessor :nombre, :apellido, :dni, :region, :edad, :calificacion_jurado
+	def initialize(nombre, apellido, dni, region, edad)
+		@nombre, @apellido, @dni, @region, @edad = nombre, apellido, dni, region, edad
 		@calificacion_jurado = [0,0,0]
 	end
 
@@ -37,15 +37,19 @@ class Concursante
 	end
 
 	def mostrar_datos
-		return "Nombre y apellidos: #{@nombre} #{@apellido} \nRegion: #{@region}\nEdad:#{@edad}"
+		return "Nombre y apellidos: #{@nombre} #{@apellido}\nDNI:#{dni} \nRegion: #{@region}\nEdad:#{@edad}"
+	end
+
+	def mostrar_datos_concursante
+			return	"#{mostrar_datos}\nPuntaje:#{calcular_puntaje_total}"
 	end
 end
 
 
 class Cantante < Concursante
 	attr_accessor :genero
-	def initialize(nombre, apellido, region, edad, genero)
-		super(nombre, apellido, region, edad)
+	def initialize(nombre, apellido, dni, region, edad, genero)
+		super(nombre, apellido,dni, region, edad)
 		@genero = genero
 	end
 
@@ -63,14 +67,17 @@ class Cantante < Concursante
 
 	def mostrar_datos
 		return "#{super} \nGenero musical:#{@genero}"
-		
+	end
+
+	def mostrar_datos_concursante
+		return "#{mostrar_datos}\nPuntaje:#{calcular_puntaje_total}"
 	end
 end
 
 class Bailarin < Concursante
 	attr_accessor :peso
-	def initialize(nombre, apellido, region, edad, peso)
-		super(nombre, apellido, region, edad)
+	def initialize(nombre, apellido, dni, region, edad, peso)
+		super(nombre, apellido,dni, region, edad)
 		@peso = peso
 	end
 
@@ -89,16 +96,20 @@ class Bailarin < Concursante
 	def mostrar_datos
 		return "#{super}\nPeso:#{@peso}"
 	end
+
+	def mostrar_datos_concursante
+		return "#{mostrar_datos}\nPuntaje:#{calcular_puntaje_total}"
+	end
 end
 
 class Acrobata < Concursante
-	def initialize(nombre, apellido, region, edad)
-		super(nombre, apellido, region, edad)
+	def initialize(nombre, apellido,dni, region, edad)
+		super(nombre, apellido,dni, region, edad)
 	end
 
 end
 
 
-c = Acrobata.new("","","callaO",30)
+#c = Acrobata.new("","","callaO",30)
 #puts c.calcular_calificacion_por_edad
 #puts c.calcular_calificacion_por_procedencia
