@@ -80,6 +80,7 @@ end
 class Bailarin < Concursante
 	attr_accessor :peso
 	def initialize(nombre, apellido, dni, region, edad, peso)
+		raise NegativeException, "No se permiten valores negativos" if peso < 0
 		super(nombre, apellido,dni, region, edad)
 		@peso = peso
 	end

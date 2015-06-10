@@ -6,7 +6,7 @@ class ConcursanteFactory
 	def self.cantante(nombre,apellido,dni,region,edad, genero)
 		begin
 			return Cantante.new(nombre,apellido,dni,region,edad,genero) 	
-		rescue Exception => e
+		rescue NegativeException => e
 			puts "#{ex.class}: #{ex.message}"
 		end
 	end	
@@ -14,7 +14,7 @@ class ConcursanteFactory
 	def self.bailarin(nombre,apellido,dni,region,edad,peso)
 		begin
 			return Bailarin.new(nombre,apellido,dni,region,edad,peso) 		
-		rescue Exception => e
+		rescue NegativeException => e
 			puts "#{ex.class}: #{ex.message}"
 		end
 	
