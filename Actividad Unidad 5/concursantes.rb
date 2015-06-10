@@ -1,6 +1,9 @@
+require "./exceptions"
+
 class Concursante
 	attr_accessor :nombre, :apellido, :dni, :region, :edad, :calificacion_jurado
 	def initialize(nombre, apellido, dni, region, edad)
+		raise NegativeException, "No se permiten valores negativos" if edad < 0
 		@nombre, @apellido, @dni, @region, @edad = nombre, apellido, dni, region, edad
 		@calificacion_jurado = [0,0,0]
 	end

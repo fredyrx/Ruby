@@ -15,5 +15,9 @@ concurso.agregar_concursante(concursante01)
 concurso.agregar_concursante(concursante02)
 concurso.agregar_concursante(concursante03)
 
+concursante03.ingresar_calificacion_jurado(6,3,6)
+concursante03.ingresar_calificacion_jurado(7,6,2)
+concursante03.ingresar_calificacion_jurado(8,3,3)
+
 #puts concurso.encontrar_concursante("73434343")
 puts concurso.mostrar_concursantes_ordenados
